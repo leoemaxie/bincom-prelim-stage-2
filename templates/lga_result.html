@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Polling Unit Result</title>
+</head>
+<body>
+    <h1>Polling Unit Result</h1>
+    <table>
+        <tr>
+            <th>Party</th>
+            <th>Score</th>
+        </tr>
+        {% for result in results %}
+        <tr>
+            <td>{{ result.party_abbreviation }}</td>
+            <td>{{ result.party_score }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>

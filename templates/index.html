@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bincom Test</title>
+</head>
+<body>
+    <h1>Welcome to Bincom Test</h1>
+    <ul>
+        <li><a href="{{ url_for('polling_unit_result', polling_unit_id=1) }}">View Polling Unit Result</a></li>
+        <li><a href="{{ url_for('lga_results') }}">View LGA Results</a></li>
+        <li><a href="{{ url_for('new_polling_unit') }}">Add New Polling Unit Result</a></li>
+    </ul>
+</body>
+</html>
