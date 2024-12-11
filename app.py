@@ -13,7 +13,9 @@ def index():
 
 @app.route('/polling_unit/<int:polling_unit_id>')
 def polling_unit_result(polling_unit_id):
-    results = AnnouncedPUResults.query.filter_by(polling_unit_uniqueid=polling_unit_id).all()
+    results = AnnouncedPUResults.query.filter_by(
+        polling_unit_uniqueid=polling_unit_id
+    ).all()
     return render_template('polling_unit_result.html', results=results)
 
 @app.route('/lga_results', methods=['GET', 'POST'])
@@ -33,7 +35,6 @@ def lga_results():
 @app.route('/new_polling_unit', methods=['GET', 'POST'])
 def new_polling_unit():
     if request.method == 'POST':
-        # Process form data and save to database
         return redirect(url_for('index'))
     return render_template('new_polling_unit.html')
 
