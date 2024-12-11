@@ -1,20 +1,20 @@
 #!/bin/env python3
 
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy.sql import text
+from sqlalchemy import create_engine, text
 from config import Config
 
+# Database engine
 engine = create_engine(Config.SQLALCHEMY_DATABASE_URI)
-Session = sessionmaker(bind=engine)
-session = Session()
 
+# Path to SQL schema
 path = 'db/schema.sql'
 
-# Execute SQL commands from a file
+# Load and execute schema
 with engine.connect() as con:
-    with open(path) as file:
-        query = text(file.read())
-        con.execute(query)
-
+    with open(path, 'r') as file:
+        sql_statements = file.read().split(';')
+        for statement in sql_statements:
+            if statement.strip():  # Skip empty statements
+                con.execute(text(statement))
+                
 print("Schema loaded successfully.")
