@@ -39,14 +39,23 @@ This project is a preliminary stage for the Bincom technical assessment. It invo
 
 ## Running the Project
 
-To run the project, ensure that your virtual environment is activated and execute the main script:
+To run the project, ensure that your virtual environment is activated:
+
+1. Create a `.env` file with the `DATABASE_URL` of your MYSQL database
 ```sh
+echo "DATABASE_URL='msql://host:user@password/db_name'"
+
+2. Load the schema into the database
+```
+```sh
+python load_schema
+```
+
+3. Execute the main script
 ```sh
 export FLASK_APP=app.py
 flask run
 ```
-
-## Project Structure
 
 ## Project Structure
 

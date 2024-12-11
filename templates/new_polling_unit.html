@@ -3,9 +3,70 @@
 <head>
     <title>New Polling Unit Result</title>
 </head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+    h1 {
+        text-align: center;
+        margin-top: 50px;
+    }
+    form {
+        width: 50%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    label {
+        margin-top: 20px;
+    }
+    input {
+        margin-top: 10px;
+        padding: 10px;
+        width: 50%;
+        border-radius: 5px;
+        border: 1px solid #333;
+    }
+    button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        border: 1px solid #333;
+        border-radius: 5px;
+        background-color: #333;
+        color: #fff;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #fff;
+        color: #333;
+    }
+    a {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+        text-decoration: none;
+        color: #333;
+        padding: 10px 20px;
+        border: 1px solid #333;
+        border-radius: 5px;
+    }
+    a:hover {
+        background-color: #333;
+        color: #fff;
+    }
+</style>
 <body>
     <h1>Add New Polling Unit Result</h1>
     <form method="POST">
+        <label for="party_abbreviation">Party Abbreviation</label>
+        <input type="text" name="party_abbreviation" id="party_abbreviation" required>
+        <input type="hidden" name="polling_unit_id" value="{{ polling_unit_id }}">
+        <label for="party_score">Party Score</label>
+        <input type="number" name="party_score" id="party_score" required>
         <button type="submit">Submit</button>
     </form>
     <a href="{{ url_for('index') }}">Back to Home</a>
